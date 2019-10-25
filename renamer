@@ -287,5 +287,14 @@ for mfile in $(cat ${get});do
 	nfile=${frasa}$(echo ${mfile}|tail -c 4)
 	echo ${mfile}
 	echo ${nfile}
+	dir=$(dirname "${nfile}");
+	mkdir -p "${dir}"
+	echo "${dir}"
+
+# следующая команда лишь иммитирует реальный, на деле создается пустой файл
+	touch ${nfile}
+# разкомментируй следующую строчку, если не стрёмно реально все переместить и переименовать=)
+#	mv "${mfile}" "${nfile}"
+
 done
 rm ${tmp} ${get}
